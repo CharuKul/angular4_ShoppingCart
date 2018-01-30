@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './global/header/header.component';
 import { BrowseComponent } from './products/browse/browse.component';
 import { DetailComponent } from './products/detail/detail.component';
+import { FilterPanelComponent } from './global/filter-panel/filter-panel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BrowseComponent,
-    DetailComponent
+    FilterPanelComponent,
   ],
   imports: [
     BrowserModule
