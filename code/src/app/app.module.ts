@@ -1,18 +1,24 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './global/header/header.component';
 import { FilterPanelComponent } from './global/filter-panel/filter-panel.component';
-import { BrowseModule } from './modules/browse/browse.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent,    
     FilterPanelComponent,
   ],
   imports: [
-    BrowseModule
+    AppRoutingModule,
+    BrowserModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

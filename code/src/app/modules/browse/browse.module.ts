@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BrowseComponent } from '../../products/browse/browse.component';
 
 const routes: Routes = [
-    { path: 'browse', component: BrowseComponent },
-    { path: 'detail', loadChildren: './modules/detail/detail.module#DetailModule'}
+    { path: '', component: BrowseComponent },
+    //{ path: 'detail', loadChildren: '../modules/detail/detail.module#DetailModule'}
 ];
 
 @NgModule({
@@ -17,4 +17,6 @@ const routes: Routes = [
     BrowseComponent
   ]
 })
-export class BrowseModule { }
+export class BrowseModule { 
+  
+}
