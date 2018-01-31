@@ -3,12 +3,21 @@
     {{product.name}}
   </div>
   <div class = "desc_cont_main_div">
-    <div class = "image_div">
+    <div class = "image_div" [style.background-image] = "getBgPath()">
     </div>
     <div class = "desc_cont_div">
-      <div class = "">
-
+      <div class = "volume_div">
+        {{product.measurement}}
       </div>
+      <div class = "price_div">
+        {{ "$" + product.price}}
+      </div>
+      <div class = "desc_div">
+        {{product.desc}}
+      </div>
+      <button class = "btn">
+        Add To Cart
+      </button>
     </div>
 
   </div>

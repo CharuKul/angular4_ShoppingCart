@@ -9,9 +9,17 @@ const routes: Routes = [
         loadChildren: './modules/browse/browse.module#BrowseModule'
     },
     {
-      path: '',
-      redirectTo: '/browse',
-      pathMatch: 'full'
+        path: 'detail',
+        loadChildren: './modules/detail/detail.module#DetailModule'
+    },
+    {
+        path: 'cart',
+        loadChildren: './modules/cart/cart.module#CartModule'
+    },
+    {
+        path: '',
+        redirectTo: '/browse',
+        pathMatch: 'full'
     }
 ];
 
@@ -22,6 +30,6 @@ const routes: Routes = [
         RouterModule,
         RouterModule.forRoot(routes)
     ],
-    declarations: [ ]
+    declarations: []
 })
 export class AppRoutingModule { }

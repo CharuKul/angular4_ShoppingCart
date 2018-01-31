@@ -15,9 +15,17 @@ export class DetailComponent implements OnInit {
     "measurement": "1L",
     "image": "product1.jpg"
   };
+
+  public imgPath = "assets/frontend-challenge/assets/";
+  
   constructor() { }
 
   ngOnInit() {
   }
+
+  getBgPath() {
+    return "url('" + this.imgPath + this.product.image + "')" ;
+  }
+
 
 }

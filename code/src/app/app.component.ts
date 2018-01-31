@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { FilterService } from './services/filter.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  show_filter = true;  
+  show_filter = true;
+
+  constructor(private _filterService: FilterService, private _cdr: ChangeDetectorRef) {
+    this._filterService.watchShowFilter()
+      .subscribe(data => {
+        this.show_filter = data;
+        this._cdr.detectChanges();
+      });
+  }
 }

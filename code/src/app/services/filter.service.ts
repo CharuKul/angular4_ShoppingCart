@@ -8,6 +8,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 @Injectable()
 export class FilterService {
 
+  showFilter$: Subject<boolean> = new Subject();
   filter$: Subject<Filter> = new Subject();
   filterFilled$: Subject<Filter[]> = new Subject();
   listFilters: Filter[] = [];
@@ -22,6 +23,8 @@ export class FilterService {
 
   // Called by components to fill filters
   fillFiltersInfo(url) {
+    this.listFilters = [];
+
     this.getFilters(url)
       .subscribe(data => {
         let pList = data["filters"];
@@ -61,16 +64,24 @@ export class FilterService {
     this.filter$.next(filter);
   }
 
+  // To watch filter show-hide updates
+  watchShowFilter(): Subject<boolean> {
+    return this.showFilter$;
+  }
+
+  triggerShowFilter(bShow) {
+    this.showFilter$.next(bShow);
+  }
+
   addFilter(filter) {
     this.listFilters.push(filter);
   }
 
-  getfilters() {
+  getListOfFilters() {
     return this.listFilters;
   }
 
   updateFilterItem(filter, filterItem) {
-
     this.triggerFilter(filter);
   }
 

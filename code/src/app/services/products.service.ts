@@ -9,18 +9,22 @@ export class ProductsService {
 
   private _url: string = "/assets/frontend-challenge/data/products.json";
   private _listBrowseProduct: Product[] = [];
+  private _listFilteredProduct: Product[] = [];
 
   productsFilled$: Subject<Product[]> = new Subject();
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<object> {
+  fetchProductJson(): Observable<object> {
     return this.http.get<object>(this._url);
   }
 
   // Called by components to fill filters
   fillProductsInfo() {
-    this.getProducts()
+    this._listBrowseProduct = [];
+    this._listFilteredProduct = [];
+
+    this.fetchProductJson()
       .subscribe(data => {
         let pList = data["products"];
 
@@ -34,6 +38,7 @@ export class ProductsService {
           product.price = prod["price"];
 
           this.addBrowseProduct(product);
+          this.addFilteredProduct(product);
         }
         this.triggerProductsFilled();
       });
@@ -45,10 +50,18 @@ export class ProductsService {
   }
 
   triggerProductsFilled() {
-    this.productsFilled$.next(this._listBrowseProduct);
+    this.productsFilled$.next(this._listFilteredProduct);
   }
 
   addBrowseProduct(filter) {
     this._listBrowseProduct.push(filter);
+  }
+
+  addFilteredProduct(filter) {
+    this._listFilteredProduct.push(filter);
+  }
+
+  getAllProducts() {
+    return this._listBrowseProduct;
   }
 }
