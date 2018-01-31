@@ -29,7 +29,7 @@ export class FilterService {
         for (var filter of pList) {
           let filterObject = new Filter();
           filterObject.name = filter["name"];
-          
+
           for (var value of filter["values"]) {
             let filterValue = new FilterItem();
             filterValue.checked = true;
@@ -43,7 +43,7 @@ export class FilterService {
       });
   }
 
-  // To watch filter updates
+  // To watch filter when info filled
   watchFilterFilled(): Subject<Filter[]> {
     return this.filterFilled$;
   }

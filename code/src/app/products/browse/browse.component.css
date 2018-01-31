@@ -1,10 +1,49 @@
 .item {
     display: inline-block;
-    width: 300px;
-    padding-top: 25%;
-    border: 1px solid grey;
-    margin: 8px;
+    vertical-align: top;
+    width: calc(25% - 25px);
+    margin-top: 16px;
+    margin-right: 20px;
+    position:relative;
+    max-width: 450px;
+}
+
+.item_main {
+    border: 1px solid gray;
 }
 
 .item_container {
+    position: relative;
+    padding: 8px;
+    left: 250px;
+}
+
+.item-photo {
+    padding-top: 75%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.item_name {
+    overflow: hidden;
+    text-align: center;
+    height: 36px;
+}
+
+.item_price {
+    text-align: center;
+    font-weight: 600;
+}
+
+.button {
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 4px;;
+}
+
+.btnDiv {
+    text-align: center;
 }

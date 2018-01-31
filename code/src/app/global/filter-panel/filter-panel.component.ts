@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../../services/filter.service';
+import { Filter } from '../../Interfaces/filter';
 
 @Component({
   selector: 'filter-panel',
@@ -8,7 +9,7 @@ import { FilterService } from '../../services/filter.service';
 })
 export class FilterPanelComponent implements OnInit {
 
-  items = {};
+  items: Filter[] = [];
 
   constructor(private _filterService: FilterService) {
     // this.items = [
