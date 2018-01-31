@@ -1,0 +1,4 @@
+.filter-panel {
+    position: absolute;
+    height: calc(100% - 60px);
+}

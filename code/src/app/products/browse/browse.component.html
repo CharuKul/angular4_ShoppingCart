@@ -1,3 +1,8 @@
-<p>
-  browse works!
-</p>
+
+<div class = "item_container">
+  <div class = "item" *ngFor="let product of pList">
+      <div class = "item_name">
+        {{product.name}}
+      </div>
+  </div>
+</div>

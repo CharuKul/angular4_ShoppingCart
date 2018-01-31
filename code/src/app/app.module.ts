@@ -7,6 +7,9 @@ import { HeaderComponent } from './global/header/header.component';
 import { FilterPanelComponent } from './global/filter-panel/filter-panel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { ProductsService } from './services/products.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FilterService } from './services/filter.service';
 
 
 @NgModule({
@@ -18,9 +21,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

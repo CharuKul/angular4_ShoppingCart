@@ -1,0 +1,17 @@
+.app-filter{
+    background-color:#3d6e96;
+    width: 200px;
+    height: 100%;
+    z-index: 1;
+    padding: 20px;
+}
+
+input[type="checkbox"]{
+    width: 20px; /*Desired width*/
+    height: 20px; /*Desired height*/
+  }
+
+.filter-area{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}

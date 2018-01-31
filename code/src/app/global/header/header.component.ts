@@ -9,6 +9,16 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  public cssAppHeader = "app-header";
+
+  OnCartClicked()
+  {
+    console.log("cart clciked");
+  }
+  OnBrowseClicked()
+  {
+    console.log("browse clciked");
+  }
   ngOnInit() {
   }
 

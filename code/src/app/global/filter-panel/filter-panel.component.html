@@ -1,3 +1,10 @@
-<p>
-  filter-panel works!
-</p>
+<div class={{cssAppFilter}}>
+
+  <div class="filter-area" *ngFor="let filter of items">
+    <label class="filter-heading">{{filter.name.toUpperCase()}}</label>
+    <div class="filter" *ngFor="let item of filter.values">
+      <input type="checkbox" (click)="UpdateFilters(filter,item)">
+      <label class="filter-label">{{item.name}}</label>
+    </div>
+  </div>
+</div>

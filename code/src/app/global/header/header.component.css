@@ -1,0 +1,18 @@
+.app-header{
+    background-color:#2196f3;
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+}
+
+.browse-button, .cart-button {
+    float: right;
+    margin: 12px 8px;
+}
+
+.button {
+    padding: 8px;
+    height: 36px;
+    width: 80px;
+    border-radius: 4px;
+}

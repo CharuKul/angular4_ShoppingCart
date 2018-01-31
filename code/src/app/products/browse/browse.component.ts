@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../../services/products.service';
+import { IProduct } from '../../interfaces/product'
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-browse',
@@ -7,14 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor() { }
+  public products = [];
+  public pList: IProduct[] = [];
+  constructor(private _productService: ProductsService, private _filterService: FilterService) {
+
+    this._filterService.watchFilter()
+      .subscribe(data => {
+        console.log("filet" + data);
+      });
+  }
 
   ngOnInit() {
-    var mydata = JSON.parse('data');
-alert(mydata[0].name);
-alert(mydata[0].age);
-alert(mydata[1].name);
-alert(mydata[1].age);
+
+    this._productService.getProducts()
+      .subscribe(data => {
+        this.pList = (data["products"]);
+        //= this._productService.parseProducts(this.products);
+      });
+
+    this._filterService.fillFiltersInfo("/assets/frontend-challenge/data/products.json");
+
   }
+
+
 
 }

@@ -1,0 +1,10 @@
+.item {
+    display: inline-block;
+    width: 300px;
+    padding-top: 25%;
+    border: 1px solid grey;
+    margin: 8px;
+}
+
+.item_container {
+}

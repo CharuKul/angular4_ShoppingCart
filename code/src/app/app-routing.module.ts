@@ -10,7 +10,7 @@ const routes: Routes = [
     },
     {
       path: '',
-      redirectTo: '',
+      redirectTo: '/browse',
       pathMatch: 'full'
     }
 ];
