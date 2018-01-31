@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-detail',
@@ -17,14 +18,15 @@ export class DetailComponent implements OnInit {
   };
 
   public imgPath = "assets/frontend-challenge/assets/";
-  
-  constructor() { }
+
+  constructor(private _filterService: FilterService) { }
 
   ngOnInit() {
+    this._filterService.triggerShowFilter(false);
   }
 
   getBgPath() {
-    return "url('" + this.imgPath + this.product.image + "')" ;
+    return "url('" + this.imgPath + this.product.image + "')";
   }
 
 
