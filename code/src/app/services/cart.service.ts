@@ -3,13 +3,12 @@ import { Product } from '../Interfaces/product';
 
 @Injectable()
 export class CartService {
-
+  
   private _listAddedProduct: Product[] = [];
   constructor() {
+  } 
 
-  }
-
-  addAllProducts(){
+  addAllProducts() {
     return this._listAddedProduct;
   }
 

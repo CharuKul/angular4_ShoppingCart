@@ -11,12 +11,13 @@ import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterService } from './services/filter.service';
 import { CartService } from './services/cart.service';
+import { CommonService } from './services/common.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,    
+    HeaderComponent,
     FilterPanelComponent
   ],
   imports: [
@@ -25,7 +26,7 @@ import { CartService } from './services/cart.service';
     RouterModule,
     HttpClientModule
   ],
-  providers: [ProductsService, FilterService, CartService],
+  providers: [ProductsService, FilterService, CartService, CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

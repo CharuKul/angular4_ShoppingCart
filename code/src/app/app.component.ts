@@ -10,11 +10,13 @@ import { FilterService } from './services/filter.service';
 export class AppComponent {
   show_filter = true;
 
-  constructor(private _filterService: FilterService, private _cdr: ChangeDetectorRef) {
+  constructor(private _filterService: FilterService,
+    private _cdr: ChangeDetectorRef) {
     this._filterService.watchShowFilter()
       .subscribe(data => {
         this.show_filter = data;
         this._cdr.detectChanges();
       });
+
   }
 }
