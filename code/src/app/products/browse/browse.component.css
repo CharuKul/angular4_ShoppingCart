@@ -10,11 +10,13 @@
     margin-right: 20px;
     position:relative;
     max-width: 450px;
+    min-width: 150px;
 }
 
 .item_main {
     border: 1px solid gray;
     cursor: pointer;
+    
 }
 
 .item_container {
@@ -26,6 +28,14 @@
     position: absolute;
     left: 250px;
     width: calc(100% - 250px);
+    overflow: scroll;
+    height: calc(100% - 40px);
+}
+
+.keep_left {
+    position: absolute;
+    left: 20px;
+    width: calc(100% - 20px);
 }
 
 .item-photo {

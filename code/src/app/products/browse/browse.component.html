@@ -1,4 +1,4 @@
-<div class = "browse_container">
+<div class = "browse_container" [ngClass]="{'keep_left':!show_addToCart}">
 <div class="item_container">
   <div class="item" *ngFor="let product of prodList">
     <div class="item_main" (click)="OnItemClicked(product, $event)">
