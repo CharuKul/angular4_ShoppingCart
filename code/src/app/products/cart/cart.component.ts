@@ -3,6 +3,7 @@ import { Product } from '../../Interfaces/product';
 import { CartService } from '../../services/cart.service';
 import { FilterService } from '../../services/filter.service';
 import { Router } from '@angular/router';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,13 +14,26 @@ export class CartComponent implements OnInit {
 
   public prodList: Product[] = [];
   public imgPath = "assets/frontend-challenge/assets/";
+  show_addToCart: boolean = false;
 
-  constructor(private _cartService: CartService, private _filterService: FilterService, private _router: Router) {
+  constructor(private _cartService: CartService, private _filterService: FilterService
+    , private _router: Router, private _commonService: CommonService) {
     this.prodList = this._cartService.getAllProducts();    
   }
 
   ngOnInit() {
     this._filterService.triggerShowFilter(false);
+
+    // To watch when url changes
+    this._commonService.watchURLChanged()
+      .subscribe(data => {
+        if (data.endsWith("cart")) {
+          this.show_addToCart = false;
+        }
+        else {
+          this.show_addToCart = true;
+        }
+      });
   }
 
   getImgPath(product) {
