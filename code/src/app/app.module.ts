@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterService } from './services/filter.service';
 import { CartService } from './services/cart.service';
 import { CommonService } from './services/common.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -26,7 +27,11 @@ import { CommonService } from './services/common.service';
     RouterModule,
     HttpClientModule
   ],
-  providers: [ProductsService, FilterService, CartService, CommonService],
+  providers: [ProductsService,
+    FilterService,
+    CartService,
+    CommonService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
