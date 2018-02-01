@@ -51,5 +51,3 @@ export class DetailComponent implements OnInit {
     this._cartService.addProduct(product);
   }
 }
-
-}
