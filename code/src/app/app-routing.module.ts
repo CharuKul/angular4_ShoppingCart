@@ -18,7 +18,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/browse',
+        redirectTo: 'browse',
         pathMatch: 'full'
     }
 ];
