@@ -4,6 +4,7 @@ import { Product } from '../../interfaces/product'
 import { FilterService } from '../../services/filter.service';
 import { CartService } from '../../services/cart.service';
 import { CommonService } from '../../services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browse',
@@ -19,7 +20,7 @@ export class BrowseComponent implements OnInit {
   show_addToCart: boolean = true;
 
   constructor(private _productService: ProductsService, private _filterService: FilterService
-    , private _cartService: CartService, private _commonService: CommonService) {
+    , private _cartService: CartService, private _commonService: CommonService, private _router: Router) {
 
     // Called when filters update.
     this._filterService.watchFilter()
@@ -57,6 +58,12 @@ export class BrowseComponent implements OnInit {
   OnAddToCartClicked(product) {
     product.addedToCart = true;
     this._cartService.addProduct(product);
+  }
+
+  OnItemClicked(product, event) {
+    if (event.target.className.indexOf("button") < 0) {
+      this._router.navigate(['/detail', product.id]);
+    }
   }
 
   getImgPath(product) {

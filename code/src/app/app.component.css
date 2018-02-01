@@ -2,3 +2,7 @@
     position: absolute;
     height: calc(100% - 60px);
 }
+
+.button{
+    cursor: pointer;
+}

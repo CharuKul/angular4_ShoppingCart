@@ -12,10 +12,9 @@ export class FilterPanelComponent implements OnInit {
   items: Filter[] = [];
 
   constructor(private _filterService: FilterService) {
-    
+
     this._filterService.watchFilterFilled()
       .subscribe(data => {
-        console.log("filet data" + data);
         this.items = data;
       });
   }
@@ -23,7 +22,7 @@ export class FilterPanelComponent implements OnInit {
   public cssAppFilter = "app-filter";
 
   ngOnInit() {
-
+    this.items = [];
   }
 
   UpdateFilters(filter, item) {

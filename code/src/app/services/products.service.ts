@@ -35,6 +35,7 @@ export class ProductsService {
 
         for (var prod of pList) {
           let product = new Product();
+          product.id = pList.indexOf(prod);
           product.name = prod["name"];
           product.brand = prod["brand"];
           product.desc = prod["desc"];
@@ -68,5 +69,13 @@ export class ProductsService {
 
   getAllProducts() {
     return this._listBrowseProduct;
+  }
+
+  getProduct(prodId) {
+    if (!this._listBrowseProduct || this._listBrowseProduct.length <= 0) {
+      this.fillProductsInfo();
+      return;
+    }
+    return this._listBrowseProduct[prodId];
   }
 }

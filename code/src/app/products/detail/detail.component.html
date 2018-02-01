@@ -1,21 +1,24 @@
-<div class = "main_div">
-  <div class = "p_name">
+<div class="main_div" *ngIf="product">
+  <div class="p_name">
     {{product.name}}
   </div>
-  <div class = "desc_cont_main_div">
-    <div class = "image_div" [style.background-image] = "getBgPath()">
+  <div class="desc_cont_main_div">
+    <div class="image_div" [style.background-image]="getBgPath()">
     </div>
-    <div class = "desc_cont_div">
-      <div class = "volume_div">
+    <div class="desc_cont_div">
+      <div class="volume_div">
         {{product.measurement}}
       </div>
-      <div class = "price_div">
+      <div class="price_div">
         {{ "$" + product.price}}
       </div>
-      <div class = "desc_div">
+      <div class="desc_div">
         {{product.desc}}
       </div>
-      <button class = "btn">
+      <button *ngIf="product.addedToCart" disabled class="btn">
+        Added
+      </button>
+      <button *ngIf="!product.addedToCart" (click)="OnAddToCartClicked(product)" class="btn">
         Add To Cart
       </button>
     </div>

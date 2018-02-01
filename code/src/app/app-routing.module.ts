@@ -9,7 +9,7 @@ const routes: Routes = [
         loadChildren: './modules/browse/browse.module#BrowseModule'
     },
     {
-        path: 'detail',
+        path: 'detail/:id',
         loadChildren: './modules/detail/detail.module#DetailModule'
     },
     {

@@ -23,6 +23,12 @@ export class FilterService {
 
   // Called by components to fill filters
   fillFiltersInfo(url) {
+
+    // if (this.listFilters && this.listFilters.length > 0) {
+    //   this.triggerFilterFilled
+    //   return;
+    // }
+
     this.listFilters = [];
 
     this.getFilters(url)

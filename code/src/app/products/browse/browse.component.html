@@ -1,7 +1,7 @@
 <div class = "browse_container">
 <div class="item_container">
   <div class="item" *ngFor="let product of prodList">
-    <div class="item_main">
+    <div class="item_main" (click)="OnItemClicked(product, $event)">
       <div class="item-photo" [style.backgroundImage]="getImgPath(product)">
       </div>
       <div class="item_name">
