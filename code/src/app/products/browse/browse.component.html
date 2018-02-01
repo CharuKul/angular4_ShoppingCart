@@ -1,3 +1,4 @@
+<div class = "browse_container">
 <div class="item_container">
   <div class="item" *ngFor="let product of prodList">
     <div class="item_main">
@@ -10,12 +11,19 @@
         {{"$" + product.price}}
       </div>
       <div class="btnDiv">
-        <button (click)="OnAddToCartClicked(product)" class="button">
+        <button *ngIf="show_addToCart && product.addedToCart" disabled class="button">
+          Added
+        </button>
+        <button *ngIf="show_addToCart && !product.addedToCart" (click)="OnAddToCartClicked(product)" class="button">
           Add To Cart
+        </button>
+        <button *ngIf="!show_addToCart" (click)="OnRemoveClicked(product)" class="button">
+          Remove
         </button>
       </div>
     </div>
   </div>
 
   <div class="noItems" *ngIf="!prodList || prodList.length <= 0">No items.</div>
+</div>
 </div>

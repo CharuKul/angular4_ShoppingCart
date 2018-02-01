@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   public imgPath = "assets/frontend-challenge/assets/";
 
   constructor(private _cartService: CartService, private _filterService: FilterService) {
-    this.prodList = this._cartService.addAllProducts();    
+    this.prodList = this._cartService.getAllProducts();    
   }
 
   ngOnInit() {
@@ -23,6 +23,22 @@ export class CartComponent implements OnInit {
 
   getImgPath(product) {
     return "url('" + this.imgPath + product.image + "')";
+  }  
+
+  OnRemoveClicked(product) {
+    product.addedToCart = false;
+    
+    if (this.prodList.includes(product)) {
+      let newList = [];
+      for (let item of this.prodList) {
+        if (item != product) {
+          newList.push(item);
+        }
+      }
+
+      this.prodList = newList;
+    }
+    this._cartService.updateProducts(this.prodList);
   }
 
 }

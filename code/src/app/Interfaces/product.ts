@@ -5,5 +5,5 @@ export class Product {
     desc: string;
     measurement: string;
     image: string;
-    count: number;
+    addedToCart : boolean;
 }

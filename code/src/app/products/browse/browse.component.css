@@ -19,7 +19,12 @@
 .item_container {
     position: relative;
     padding: 8px;
+}
+
+.browse_container {
+    position: absolute;
     left: 250px;
+    width: calc(100% - 250px);
 }
 
 .item-photo {

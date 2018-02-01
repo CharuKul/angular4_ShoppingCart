@@ -21,6 +21,11 @@ export class ProductsService {
 
   // Called by components to fill filters
   fillProductsInfo() {
+    if (this._listBrowseProduct && this._listBrowseProduct.length > 0) {
+      this.triggerProductsFilled();
+      return;
+    }
+
     this._listBrowseProduct = [];
     this._listFilteredProduct = [];
 

@@ -3,6 +3,7 @@ import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product'
 import { FilterService } from '../../services/filter.service';
 import { CartService } from '../../services/cart.service';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-browse',
@@ -15,9 +16,10 @@ export class BrowseComponent implements OnInit {
   public products = [];
   public imgPath = "assets/frontend-challenge/assets/";
   public prodList: Product[] = [];
-  constructor(private _productService: ProductsService, private _filterService: FilterService
-    , private _cartService: CartService) {
+  show_addToCart: boolean = true;
 
+  constructor(private _productService: ProductsService, private _filterService: FilterService
+    , private _cartService: CartService, private _commonService: CommonService) {
 
     // Called when filters update.
     this._filterService.watchFilter()
@@ -28,9 +30,21 @@ export class BrowseComponent implements OnInit {
 
   ngOnInit() {
 
+    // To watch when products are filled
     this._productService.watchProductsFilled()
       .subscribe(data => {
         this.prodList = data;
+      });
+
+    // To watch when url changes
+    this._commonService.watchURLChanged()
+      .subscribe(data => {
+        if (data.endsWith("cart")) {
+          this.show_addToCart = false;
+        }
+        else {
+          this.show_addToCart = true;
+        }
       });
 
     this._filterService.triggerShowFilter(true);
@@ -41,8 +55,8 @@ export class BrowseComponent implements OnInit {
   }
 
   OnAddToCartClicked(product) {
+    product.addedToCart = true;
     this._cartService.addProduct(product);
-    console.log("add to cart clicked");
   }
 
   getImgPath(product) {
