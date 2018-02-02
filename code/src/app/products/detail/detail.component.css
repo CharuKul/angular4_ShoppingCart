@@ -6,16 +6,6 @@
     width: calc(100% - 32px);
 }
 
-.image_div {
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    width: calc(100% - 200px);
-    max-width: 400px;
-    background-position: center;
-}
-
 .p_name {
     font-size: 32px;
     font-weight: 700;
@@ -27,6 +17,7 @@
     background-size: contain;
     position: relative;
     width: calc(100% - 200px);
+    max-width: 400px;
     background-position: center;
 }
 
@@ -38,6 +29,7 @@
     display: inline-block;
     width: 250px;
     position: relative;
+    padding-left: 16px;
 }
 
 .volume_div {

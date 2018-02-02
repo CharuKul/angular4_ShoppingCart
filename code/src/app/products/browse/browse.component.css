@@ -11,10 +11,11 @@
     position:relative;
     max-width: 450px;
     min-width: 150px;
+    background-color: white;
 }
 
 .item_main {
-    border: 1px solid gray;
+    border: 1px solid #e1e1e1;
     cursor: pointer;
     
 }
@@ -30,6 +31,8 @@
     width: calc(100% - 250px);
     overflow: scroll;
     height: calc(100% - 40px);
+    background-color: rgb(239,239,239);
+    top: 60px;
 }
 
 .keep_left {
